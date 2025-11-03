@@ -4,6 +4,7 @@ import { LibSQLStore } from '@mastra/libsql';
 import { brandGenieWorkflow } from './workflows/brandgenie-workflow';
 import { brandGenieAgent } from './agents/brandgenie-agent';
 import { creativityScorer } from './scorers/brandgenie-scorer';
+import { a2aAgentRoute } from "./routes/brandgenie-route";
 
 export const mastra = new Mastra({
   workflows: { brandGenieWorkflow },
@@ -13,6 +14,13 @@ export const mastra = new Mastra({
     // stores observability, scores, ... into memory storage, if it needs to persist, change to file:../mastra.db
     url: ":memory:",
   }),
+  server: {
+    build: {
+      openAPIDocs: true,
+      swaggerUI: true,
+    },
+    apiRoutes: [a2aAgentRoute],
+  },
   logger: new PinoLogger({
     name: 'Mastra',
     level: 'info',
