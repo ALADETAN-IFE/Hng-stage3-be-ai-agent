@@ -34,9 +34,9 @@ async function checkDomainAvailability(name: string, extensions: string[]): Prom
   
   // Check all domains in parallel with timeout
   const checks = extensions.map(async (ext) => {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 2000); // 2 second timeout per request
     try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 2000); // 2 second timeout per request
       
       const res = await axios.get(
         `https://api.domainsdb.info/v1/domains/search?domain=${name}${ext}`,
@@ -46,11 +46,12 @@ async function checkDomainAvailability(name: string, extensions: string[]): Prom
         }
       );
       
-      clearTimeout(timeoutId);
       availability[ext] = !res.data.domains || res.data.domains.length === 0;
     } catch (error) {
       // If timeout or error, assume available (optimistic approach)
       availability[ext] = true;
+    } finally {
+      clearTimeout(timeoutId);
     }
   });
 
