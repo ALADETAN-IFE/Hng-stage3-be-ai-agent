@@ -141,7 +141,9 @@ export const brandGenieTool = createTool({
 
 ${brandSuggestions}
 
-💡 **Tip:** BrandGenie automatically selects the best domain extensions for your industry and suggests the next available option if .com is taken.`;
+💡 **Tip:** BrandGenie automatically selects the best domain extensions for your industry and suggests the next available option if .com is taken.
+    Now pick a name so that I can continue with branding 
+`;
 
     return {
       text: markdownOutput,
