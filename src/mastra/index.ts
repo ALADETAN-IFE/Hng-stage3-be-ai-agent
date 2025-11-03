@@ -17,6 +17,9 @@ export const mastra = new Mastra({
     name: 'Mastra',
     level: 'info',
   }),
+  bundler: {
+    externals: ['axios']
+  },
   telemetry: {
     // Telemetry is deprecated and will be removed in the Nov 4th release
     enabled: false, 
