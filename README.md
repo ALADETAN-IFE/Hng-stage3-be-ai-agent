@@ -13,7 +13,7 @@ This repository contains the Stage 3 Backend submission — a Mastra-based AI ag
 ## 🧩 Features
 
 - Mastra agents and tools implemented under src/mastra:
-  - BrandGenie tool: generates creative brand names and checks smart domain availability by industry
+  - BrandGenie tool: generates 5 creative, short (1–2 word) brand name ideas (LLM-provided or fallback), calls the domain-check tool to run parallel, industry-
   - Scorers: utility modules for ranking suggestions
   - Workflows: Mastra workflow JSON ready for A2A nodes (Telex.im)
 - Outputs Markdown-formatted suggestions and domain availability
