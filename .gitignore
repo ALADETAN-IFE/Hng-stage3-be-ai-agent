@@ -2,6 +2,10 @@ output.txt
 node_modules 
 dist 
 .mastra 
-.env.development 
 *.db 
 *.db-* 
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore
+branch_structure.json
+config.bat
