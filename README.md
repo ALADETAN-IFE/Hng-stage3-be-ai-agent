@@ -6,7 +6,9 @@ This repository contains the Stage 3 Backend submission — a Mastra-based AI ag
 
 ## 🚀 Live / Demo
 
-- No hosted public demo included by default. See "How to Run Locally" to run the agents and workflows locally or deploy to Mastra.
+- **Backend A2A endpoint (Mastra Cloud):** [Mastra Cloud Endpoint](https://brandgenie.mastra.cloud/a2a/agent/brandGenieAgent) (requires Mastra account and API key)
+- **Frontend test UI:** [BrandGenie Frontend](https://brandgenie-frontend.vercel.app)
+- **How to test quickly:** Open the frontend test UI, enter a business idea, and submit. The UI sends a JSON-RPC request to the backend endpoint and renders the returned branding markdown.
 
 ---
 
