@@ -4,9 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node init && mastra dev",
-    "build": "node init && mastra build",
-    "start": "node init && mastra start"
+    "dev": "mastra dev",
+    "build": "mastra build",
+    "start": "mastra start"
   },
   "keywords": [],
   "author": "",
